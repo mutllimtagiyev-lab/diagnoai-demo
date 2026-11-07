@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-07",
+  "sources": {
+    "ford2024": {
+      "title": {
+        "en": "Ford: 2024–2025 OBD operation summary",
+        "az": "Ford: 2024–2025 OBD iş prinsipləri"
+      },
+      "url": "https://www.fordservicecontent.com/Ford_Content/catalog/motorcraft/OBD_Operation_Summary_to_Gasoline_MY_2024_2025.pdf"
+    },
+    "vw2014": {
+      "title": {
+        "en": "Volkswagen: Jetta & GLI specification book, February 2014",
+        "az": "Volkswagen: Jetta və GLI texniki məlumat kitabı, fevral 2014"
+      },
+      "url": "https://static.nhtsa.gov/odi/tsbs/2014/MC-10074001-2280.pdf"
+    },
+    "malibu2021": {
+      "title": {
+        "en": "Chevrolet: 2021 Malibu owner's manual",
+        "az": "Chevrolet: 2021 Malibu istifadəçi təlimatı"
+      },
+      "url": "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/malibu/2021-chevrolet-malibu-owners-manual.pdf"
+    }
+  },
+  "codes": {
+    "P0300": {
+      "meaning": {
+        "en": "Random/Multiple Cylinder Misfire Detected",
+        "az": "Təsadüfi və ya bir neçə silindrdə yanma pozuntusu aşkar edilib"
+      },
+      "explanation": {
+        "en": "The control module recorded misfires that are random or involve multiple cylinders; one failed component is not established.",
+        "az": "İdarəetmə bloku təsadüfi və ya bir neçə silindri əhatə edən yanma pozuntusu qeydə alıb; konkret nasaz hissə müəyyən edilməyib."
+      },
+      "possible_causes": [
+        {
+          "en": "Ignition fault, such as a worn spark plug or coil, on spark-ignition engines.",
+          "az": "Qığılcımla alışan mühərriklərdə köhnəlmiş şam və ya alışdırma bobini kimi alışdırma problemi."
+        },
+        {
+          "en": "Fuel delivery or injector problem; unwanted intake air.",
+          "az": "Yanacaq təchizatı və ya injektor problemi; giriş sisteminə əlavə hava sızması."
+        },
+        {
+          "en": "Compression or other mechanical problem.",
+          "az": "Kompressiya və ya başqa mexaniki problem."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Record whether the check-engine light is steady or flashing. Do not drive to reproduce the fault.",
+          "az": "Mühərrik xəbərdarlıq işığının sabit yandığını, yoxsa yanıb-söndüyünü qeyd edin. Xətanı təkrarlamaq üçün sürməyin."
+        },
+        {
+          "en": "Keep the scanner report and freeze-frame data, if already available, for a qualified technician. Do not clear codes first.",
+          "az": "Skaner hesabatını və varsa xəta anının məlumatlarını ustaya təqdim etmək üçün saxlayın. Əvvəlcədən kodları silməyin."
+        },
+        {
+          "en": "Arrange prompt professional assessment; cylinder location and tests require the exact engine's service information.",
+          "az": "Tezliklə peşəkar yoxlama təşkil edin; silindrin yeri və testlər üçün həmin mühərrikin servis məlumatı lazımdır."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Continued misfire can damage the catalytic converter. Do not remove ignition parts or work on a running engine.",
+          "az": "Davam edən yanma pozuntusu katalizatoru zədələyə bilər. Alışdırma hissələrini çıxarmayın və işləyən mühərrikdə iş görməyin."
+        }
+      ],
+      "urgency": "prompt",
+      "urgency_reason": {
+        "en": "A misfire code warrants prompt assessment because continued misfire can damage the catalyst. The code alone does not show current severity.",
+        "az": "Yanma pozuntusu davam edərsə katalizator zədələnə bilər, buna görə tez yoxlama lazımdır. Kod təkbaşına hazırkı ağırlıq dərəcəsini göstərmir."
+      },
+      "references": [
+        {
+          "source": "vw2014",
+          "location": {
+            "en": "Printed page 22, Ignition System DTC table",
+            "az": "Çap səhifəsi 22, alışdırma sistemi kod cədvəli"
+          }
+        }
+      ]
+    },
+    "P0301": {
+      "meaning": {
+        "en": "Cylinder 1 Misfire Detected",
+        "az": "1-ci silindrdə yanma pozuntusu aşkar edilib"
+      },
+      "explanation": {
+        "en": "The control module recorded uneven combustion associated with cylinder 1. It does not identify the failed part.",
+        "az": "İdarəetmə bloku 1-ci silindrlə əlaqəli qeyri-bərabər yanma qeydə alıb. Bu, sıradan çıxmış hissəni müəyyən etmir."
+      },
+      "possible_causes": [
+        {
+          "en": "Ignition fault, such as a worn spark plug or coil, on spark-ignition engines.",
+          "az": "Qığılcımla alışan mühərriklərdə köhnəlmiş şam və ya alışdırma bobini kimi alışdırma problemi."
+        },
+        {
+          "en": "Fuel delivery or injector problem; unwanted intake air.",
+          "az": "Yanacaq təchizatı və ya injektor problemi; giriş sisteminə əlavə hava sızması."
+        },
+        {
+          "en": "Compression or other mechanical problem.",
+          "az": "Kompressiya və ya başqa mexaniki problem."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Record whether the check-engine light is steady or flashing. Do not drive to reproduce the fault.",
+          "az": "Mühərrik xəbərdarlıq işığının sabit yandığını, yoxsa yanıb-söndüyünü qeyd edin. Xətanı təkrarlamaq üçün sürməyin."
+        },
+        {
+          "en": "Keep the scanner report and freeze-frame data, if already available, for a qualified technician. Do not clear codes first.",
+          "az": "Skaner hesabatını və varsa xəta anının məlumatlarını ustaya təqdim etmək üçün saxlayın. Əvvəlcədən kodları silməyin."
+        },
+        {
+          "en": "Arrange prompt professional assessment; cylinder location and tests require the exact engine's service information.",
+          "az": "Tezliklə peşəkar yoxlama təşkil edin; silindrin yeri və testlər üçün həmin mühərrikin servis məlumatı lazımdır."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Continued misfire can damage the catalytic converter. Do not remove ignition parts or work on a running engine.",
+          "az": "Davam edən yanma pozuntusu katalizatoru zədələyə bilər. Alışdırma hissələrini çıxarmayın və işləyən mühərrikdə iş görməyin."
+        }
+      ],
+      "urgency": "prompt",
+      "urgency_reason": {
+        "en": "A misfire code warrants prompt assessment because continued misfire can damage the catalyst. The code alone does not show current severity.",
+        "az": "Yanma pozuntusu davam edərsə katalizator zədələnə bilər, buna görə tez yoxlama lazımdır. Kod təkbaşına hazırkı ağırlıq dərəcəsini göstərmir."
+      },
+      "references": [
+        {
+          "source": "vw2014",
+          "location": {
+            "en": "Printed page 22, Ignition System DTC table",
+            "az": "Çap səhifəsi 22, alışdırma sistemi kod cədvəli"
+          }
+        }
+      ]
+    },
+    "P0302": {
+      "meaning": {
+        "en": "Cylinder 2 Misfire Detected",
+        "az": "2-ci silindrdə yanma pozuntusu aşkar edilib"
+      },
+      "explanation": {
+        "en": "The control module recorded uneven combustion associated with cylinder 2. It does not identify the failed part.",
+        "az": "İdarəetmə bloku 2-ci silindrlə əlaqəli qeyri-bərabər yanma qeydə alıb. Bu, sıradan çıxmış hissəni müəyyən etmir."
+      },
+      "possible_causes": [
+        {
+          "en": "Ignition fault, such as a worn spark plug or coil, on spark-ignition engines.",
+          "az": "Qığılcımla alışan mühərriklərdə köhnəlmiş şam və ya alışdırma bobini kimi alışdırma problemi."
+        },
+        {
+          "en": "Fuel delivery or injector problem; unwanted intake air.",
+          "az": "Yanacaq təchizatı və ya injektor problemi; giriş sisteminə əlavə hava sızması."
+        },
+        {
+          "en": "Compression or other mechanical problem.",
+          "az": "Kompressiya və ya başqa mexaniki problem."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Record whether the check-engine light is steady or flashing. Do not drive to reproduce the fault.",
+          "az": "Mühərrik xəbərdarlıq işığının sabit yandığını, yoxsa yanıb-söndüyünü qeyd edin. Xətanı təkrarlamaq üçün sürməyin."
+        },
+        {
+          "en": "Keep the scanner report and freeze-frame data, if already available, for a qualified technician. Do not clear codes first.",
+          "az": "Skaner hesabatını və varsa xəta anının məlumatlarını ustaya təqdim etmək üçün saxlayın. Əvvəlcədən kodları silməyin."
+        },
+        {
+          "en": "Arrange prompt professional assessment; cylinder location and tests require the exact engine's service information.",
+          "az": "Tezliklə peşəkar yoxlama təşkil edin; silindrin yeri və testlər üçün həmin mühərrikin servis məlumatı lazımdır."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Continued misfire can damage the catalytic converter. Do not remove ignition parts or work on a running engine.",
+          "az": "Davam edən yanma pozuntusu katalizatoru zədələyə bilər. Alışdırma hissələrini çıxarmayın və işləyən mühərrikdə iş görməyin."
+        }
+      ],
+      "urgency": "prompt",
+      "urgency_reason": {
+        "en": "A misfire code warrants prompt assessment because continued misfire can damage the catalyst. The code alone does not show current severity.",
+        "az": "Yanma pozuntusu davam edərsə katalizator zədələnə bilər, buna görə tez yoxlama lazımdır. Kod təkbaşına hazırkı ağırlıq dərəcəsini göstərmir."
+      },
+      "references": [
+        {
+          "source": "vw2014",
+          "location": {
+            "en": "Printed page 22, Ignition System DTC table",
+            "az": "Çap səhifəsi 22, alışdırma sistemi kod cədvəli"
+          }
+        }
+      ]
+    },
+    "P0171": {
+      "meaning": {
+        "en": "System Too Lean (Bank 1)",
+        "az": "Hava-yanacaq qarışığı həddən artıq kasaddır (Bank 1)"
+      },
+      "explanation": {
+        "en": "Fuel control detected a lean condition on bank 1. This can reflect excess air, insufficient fuel, or misleading sensor data.",
+        "az": "Yanacaq idarəetməsi Bank 1-də kasad qarışıq qeydə alıb. Səbəb artıq hava, az yanacaq və ya səhv sensor məlumatı ola bilər."
+      },
+      "possible_causes": [
+        {
+          "en": "Intake or vacuum leak.",
+          "az": "Giriş və ya vakuum sistemində sızma."
+        },
+        {
+          "en": "Insufficient fuel delivery or an injector issue.",
+          "az": "Yanacaq təchizatının azlığı və ya injektor problemi."
+        },
+        {
+          "en": "Airflow or oxygen-sensor measurement error.",
+          "az": "Hava axını və ya oksigen sensorunun ölçmə xətası."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "With the engine off and cool, only look for an obviously loose intake duct; do not dismantle anything.",
+          "az": "Mühərrik sönük və soyumuş halda yalnız giriş borusunun aşkar boşalmasına baxın; heç nə sökməyin."
+        },
+        {
+          "en": "Record when the warning appeared and have a technician check fuel-trim data and leaks.",
+          "az": "Xəbərdarlığın nə vaxt yarandığını qeyd edin; yanacaq korreksiyası məlumatlarını və sızmaları ustaya yoxlatdırın."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Do not spray flammable products to search for leaks or open fuel lines.",
+          "az": "Sızma axtarmaq üçün alışan maddələr püskürtməyin və yanacaq xətlərini açmayın."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon: a lean-running condition can affect engine operation. Stalling or major power loss overrides this baseline.",
+        "az": "Yaxın vaxtda servis yoxlaması təşkil edin: kasad qarışıq mühərrikin işinə təsir edə bilər. Sönmə və ya ciddi güc itkisi bu ilkin səviyyədən daha təcilidir."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed pages 21 and 96, Fuel System Monitor",
+            "az": "Çap səhifələri 21 və 96, yanacaq sistemi monitoru"
+          }
+        }
+      ]
+    },
+    "P0420": {
+      "meaning": {
+        "en": "Catalyst System Efficiency Below Threshold (Bank 1)",
+        "az": "Katalizator sisteminin səmərəliliyi həddən aşağıdır (Bank 1)"
+      },
+      "explanation": {
+        "en": "The catalyst monitor detected performance below its threshold on bank 1; the converter is not proven faulty by this code alone.",
+        "az": "Katalizator monitoru Bank 1-də səmərəliliyi həddən aşağı qeydə alıb; təkcə bu kod katalizatorun nasaz olduğunu sübut etmir."
+      },
+      "possible_causes": [
+        {
+          "en": "Catalyst deterioration.",
+          "az": "Katalizatorun köhnəlməsi."
+        },
+        {
+          "en": "Exhaust leakage or oxygen-sensor signal problems.",
+          "az": "Egzoz sızması və ya oksigen sensoru siqnalının problemi."
+        },
+        {
+          "en": "Combustion or mixture faults affecting the catalyst.",
+          "az": "Katalizatora təsir edən yanma və ya qarışıq pozuntuları."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Keep all accompanying codes. Ask a technician to assess misfire or fuel-mixture faults as well.",
+          "az": "Yanaşı kodları saxlayın. Ustadan yanma və yanacaq qarışığı pozuntularını da yoxlamağı istəyin."
+        },
+        {
+          "en": "Request professional exhaust and sensor checks before any converter replacement.",
+          "az": "Katalizator dəyişdirilməzdən əvvəl egzoz və sensorların peşəkar yoxlanmasını istəyin."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "The exhaust can be extremely hot. Do not touch it or crawl under an unsupported vehicle.",
+          "az": "Egzoz çox isti ola bilər. Ona toxunmayın və dayaqlarla təhlükəsiz qaldırılmamış avtomobilin altına girməyin."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon for the emissions-system fault; any accompanying misfire takes higher priority.",
+        "az": "Emissiya sistemi xətası üçün yaxın vaxtda servis təşkil edin; yanaşı yanma pozuntusu daha yüksək prioritetlidir."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed page 2, Catalyst Monitor",
+            "az": "Çap səhifəsi 2, katalizator monitoru"
+          }
+        }
+      ]
+    },
+    "P0101": {
+      "meaning": {
+        "en": "Mass or Volume Air Flow Circuit Range/Performance",
+        "az": "Havanın kütlə və ya həcm axını dövrəsi: diapazon/iş göstəricisi"
+      },
+      "explanation": {
+        "en": "The airflow signal is inconsistent with expected operation. This is not proof that the airflow sensor needs replacement.",
+        "az": "Hava axını siqnalı gözlənilən iş şəraiti ilə uyğun gəlmir. Bu, hava axını sensorunun dəyişdirilməli olduğunu sübut etmir."
+      },
+      "possible_causes": [
+        {
+          "en": "Air leak or restriction in the intake.",
+          "az": "Hava girişində sızma və ya məhdudiyyət."
+        },
+        {
+          "en": "Contaminated or faulty airflow sensor.",
+          "az": "Çirklənmiş və ya nasaz hava axını sensoru."
+        },
+        {
+          "en": "Connector or wiring fault.",
+          "az": "Birləşdirici və ya naqil nasazlığı."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "With the engine off and cool, visually check the air-filter housing and intake duct without removing parts.",
+          "az": "Mühərrik sönük və soyumuş halda hissələri çıxarmadan hava filtri korpusuna və giriş borusuna baxın."
+        },
+        {
+          "en": "Have a technician compare airflow readings with the vehicle's service specifications.",
+          "az": "Hava axını göstəricilərini avtomobilin servis normaları ilə ustaya müqayisə etdirin."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Do not touch the sensing element or use cleaning sprays as a diagnostic test.",
+          "az": "Sensorun ölçmə elementinə toxunmayın və diaqnostik test kimi təmizləyici püskürtməyin."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon because incorrect airflow measurement can affect drivability; severe power loss requires immediate safe stopping.",
+        "az": "Səhv hava axını ölçməsi idarəetməyə təsir edə bilər; yaxın vaxtda servis təşkil edin. Ciddi güc itkisi olduqda təhlükəsiz yerdə dərhal dayanın."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed page 121, MAF Sensor Check",
+            "az": "Çap səhifəsi 121, MAF sensorunun yoxlanması"
+          }
+        }
+      ]
+    },
+    "P0113": {
+      "meaning": {
+        "en": "Intake Air Temperature Sensor 1 Circuit High Input",
+        "az": "Giriş havası temperatur sensoru 1 dövrəsində yüksək giriş siqnalı"
+      },
+      "explanation": {
+        "en": "The intake-air temperature circuit reports an abnormally high electrical signal; this does not mean that the air itself is too hot.",
+        "az": "Giriş havası temperatur dövrəsi qeyri-normal yüksək elektrik siqnalı bildirir; bu, havanın özünün həddən artıq isti olması demək deyil."
+      },
+      "possible_causes": [
+        {
+          "en": "Disconnected connector or open wiring.",
+          "az": "Ayrılmış birləşdirici və ya qırıq naqil."
+        },
+        {
+          "en": "Faulty intake-air temperature sensor.",
+          "az": "Giriş havası temperatur sensorunun nasazlığı."
+        },
+        {
+          "en": "Electrical connection or supply fault.",
+          "az": "Elektrik bağlantısı və ya qidalanma problemi."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Note recent air-filter or intake work and share this with the technician.",
+          "az": "Son hava filtri və ya giriş sistemi işlərini qeyd edib ustaya bildirin."
+        },
+        {
+          "en": "With the engine off and cool, look for a visibly disconnected plug without touching or probing wiring.",
+          "az": "Mühərrik sönük və soyumuş halda naqillərə toxunmadan və onları ölçmədən aşkar ayrılmış birləşdiriciyə baxın."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Do not bridge terminals or probe live circuits.",
+          "az": "Kontaktları birləşdirməyin və gərginlik altında dövrələri ölçməyin."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon to verify temperature input and wiring; the code does not establish a driving-safety status.",
+        "az": "Temperatur siqnalını və naqilləri yoxlatmaq üçün yaxın vaxtda servis təşkil edin; kod sürüş təhlükəsizliyini müəyyən etmir."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed pages 107 and 114, Intake Air Temperature",
+            "az": "Çap səhifələri 107 və 114, giriş havasının temperaturu"
+          }
+        }
+      ]
+    },
+    "P0128": {
+      "meaning": {
+        "en": "Coolant Thermostat (Coolant Temperature Below Thermostat Regulating Temperature)",
+        "az": "Soyuducu termostatı: temperatur termostatın tənzimləmə səviyyəsindən aşağıdır"
+      },
+      "explanation": {
+        "en": "The engine did not reach the expected coolant temperature under monitored conditions. It is not an overheating diagnosis.",
+        "az": "Mühərrik izlənən şəraitdə gözlənilən soyuducu temperaturuna çatmayıb. Bu, qızma diaqnozu deyil."
+      },
+      "possible_causes": [
+        {
+          "en": "Thermostat stuck open.",
+          "az": "Termostatın açıq qalması."
+        },
+        {
+          "en": "Low coolant or cooling-system problem.",
+          "az": "Soyuducu mayenin azlığı və ya soyutma sistemi problemi."
+        },
+        {
+          "en": "Coolant-temperature sensor or wiring fault.",
+          "az": "Soyuducu temperatur sensoru və ya naqil nasazlığı."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Note the dashboard temperature reading and heater behavior without performing a test drive.",
+          "az": "Sınaq sürüşü etmədən paneldəki temperatur göstəricisini və salon qızdırıcısının davranışını qeyd edin."
+        },
+        {
+          "en": "Only when fully cold, view the reservoir level through the tank if accessible; follow the owner's manual and keep the cap closed.",
+          "az": "Yalnız tam soyuduqda və əlçatandırsa çənin xaricindən maye səviyyəsinə baxın; istifadəçi təlimatına əməl edin və qapağı açmayın."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Never open a hot cooling-system cap. If overheating or steam is present, stop safely and seek assistance.",
+          "az": "İsti soyutma sisteminin qapağını heç vaxt açmayın. Qızma və ya buxar varsa, təhlükəsiz dayanın və yardım alın."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon to investigate warm-up performance. Any overheating warning requires immediate attention regardless of this code.",
+        "az": "Qızma prosesini yoxlatmaq üçün yaxın vaxtda servis təşkil edin. Hər hansı həddən artıq qızma xəbərdarlığı koddan asılı olmayaraq təcili diqqət tələb edir."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed page 71, Thermostat Monitor",
+            "az": "Çap səhifəsi 71, termostat monitoru"
+          }
+        }
+      ]
+    },
+    "P0442": {
+      "meaning": {
+        "en": "Evaporative Emission System Leak Detected (small leak)",
+        "az": "Yanacaq buxarı emissiya sistemində kiçik sızma aşkar edilib"
+      },
+      "explanation": {
+        "en": "The EVAP monitor detected behavior consistent with a small vapor leak. The exact leak location is not identified.",
+        "az": "EVAP monitoru kiçik buxar sızmasına uyğun davranış qeydə alıb. Sızmanın dəqiq yeri müəyyən edilməyib."
+      },
+      "possible_causes": [
+        {
+          "en": "Fuel-cap or filler seal issue, where fitted.",
+          "az": "Yanacaq qapağı və ya doldurma boğazı kipliyi problemi, əgər varsa."
+        },
+        {
+          "en": "Damaged vapor hose or canister.",
+          "az": "Zədələnmiş buxar şlanqı və ya adsorber."
+        },
+        {
+          "en": "Purge or vent valve that does not seal correctly.",
+          "az": "Düzgün kip bağlanmayan təmizləmə və ya havalandırma klapanı."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Note whether the warning followed refueling. If there is no fuel smell or visible leak, check cap seating only as the owner's manual permits; some vehicles are capless.",
+          "az": "Xəbərdarlığın yanacaq doldurulduqdan sonra yaranıb-yaranmadığını qeyd edin. Yanacaq qoxusu və görünən sızma yoxdursa, qapağın oturuşunu yalnız təlimata uyğun yoxlayın; bəzi avtomobillər qapaqsızdır."
+        },
+        {
+          "en": "Have a qualified workshop locate the leak with approved equipment.",
+          "az": "Sızmanın yerini uyğun avadanlığı olan ixtisaslı servisdə müəyyən etdirin."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Avoid flames and smoking. Do not use homemade smoke/pressure tests, open fuel lines, or assume a vapor-leak code rules out liquid fuel leakage.",
+          "az": "Alovdan və siqaretdən uzaq durun. Ev üsulu tüstü/təzyiq testi etməyin, yanacaq xətlərini açmayın və buxar sızması koduna əsasən maye yanacaq sızmasını istisna etməyin."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon for an EVAP leak indication. Fuel smell or visible leakage overrides this baseline and needs immediate assistance.",
+        "az": "EVAP sızması göstəricisi üçün yaxın vaxtda servis təşkil edin. Yanacaq qoxusu və ya görünən sızma olduqda bu ilkin səviyyədən asılı olmayaraq dərhal yardım alın."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed page 11, EVAP System Monitor",
+            "az": "Çap səhifəsi 11, EVAP sistemi monitoru"
+          }
+        }
+      ]
+    },
+    "P0455": {
+      "meaning": {
+        "en": "Evaporative Emission System Leak Detected (large/gross leak)",
+        "az": "Yanacaq buxarı emissiya sistemində böyük sızma aşkar edilib"
+      },
+      "explanation": {
+        "en": "The EVAP monitor detected behavior consistent with a large/gross vapor leak. The exact leak location is not identified.",
+        "az": "EVAP monitoru böyük buxar sızmasına uyğun davranış qeydə alıb. Sızmanın dəqiq yeri müəyyən edilməyib."
+      },
+      "possible_causes": [
+        {
+          "en": "Fuel-cap or filler seal issue, where fitted.",
+          "az": "Yanacaq qapağı və ya doldurma boğazı kipliyi problemi, əgər varsa."
+        },
+        {
+          "en": "Damaged vapor hose or canister.",
+          "az": "Zədələnmiş buxar şlanqı və ya adsorber."
+        },
+        {
+          "en": "Purge or vent valve that does not seal correctly.",
+          "az": "Düzgün kip bağlanmayan təmizləmə və ya havalandırma klapanı."
+        }
+      ],
+      "safe_checks": [
+        {
+          "en": "Note whether the warning followed refueling. If there is no fuel smell or visible leak, check cap seating only as the owner's manual permits; some vehicles are capless.",
+          "az": "Xəbərdarlığın yanacaq doldurulduqdan sonra yaranıb-yaranmadığını qeyd edin. Yanacaq qoxusu və görünən sızma yoxdursa, qapağın oturuşunu yalnız təlimata uyğun yoxlayın; bəzi avtomobillər qapaqsızdır."
+        },
+        {
+          "en": "Have a qualified workshop locate the leak with approved equipment.",
+          "az": "Sızmanın yerini uyğun avadanlığı olan ixtisaslı servisdə müəyyən etdirin."
+        }
+      ],
+      "warnings": [
+        {
+          "en": "Avoid flames and smoking. Do not use homemade smoke/pressure tests, open fuel lines, or assume a vapor-leak code rules out liquid fuel leakage.",
+          "az": "Alovdan və siqaretdən uzaq durun. Ev üsulu tüstü/təzyiq testi etməyin, yanacaq xətlərini açmayın və buxar sızması koduna əsasən maye yanacaq sızmasını istisna etməyin."
+        }
+      ],
+      "urgency": "soon",
+      "urgency_reason": {
+        "en": "Arrange service soon for an EVAP leak indication. Fuel smell or visible leakage overrides this baseline and needs immediate assistance.",
+        "az": "EVAP sızması göstəricisi üçün yaxın vaxtda servis təşkil edin. Yanacaq qoxusu və ya görünən sızma olduqda bu ilkin səviyyədən asılı olmayaraq dərhal yardım alın."
+      },
+      "references": [
+        {
+          "source": "ford2024",
+          "location": {
+            "en": "Printed page 11, EVAP System Monitor",
+            "az": "Çap səhifəsi 11, EVAP sistemi monitoru"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+/* Native Streamlit inputs retain keyboard behavior and accessible labels. */
+:root { color-scheme: dark; }
+.stApp { background: radial-gradient(ellipse at 85% 0%, #11293d 0, #080f1d 48%); }
+.stMainBlockContainer { max-width: 1200px; padding: 2.3rem 2rem 3rem; }
+header[data-testid="stHeader"] { background: transparent; }
+[data-testid="stToolbar"], [data-testid="stDecoration"], #MainMenu, footer { display: none; }
+/* Replace Streamlit's English edit hints with our translated labels/captions. */
+[data-testid="InputInstructions"] { display: none; }
+h1, h2, h3, p, label { font-family: "Segoe UI", Arial, sans-serif; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 25px "Segoe UI", sans-serif; letter-spacing: -.8px; }
+.brand-icon { display: grid; place-items: center; width: 39px; height: 39px; border: 1px solid #397384; border-radius: 12px; color: #5be3f1; background: #153342; font-size: 23px; }
+.brand-accent { color: #4dd9eb; }
+.version { margin-left: 4px; color: #a6bbce; border: 1px solid #2c3e54; border-radius: 6px; padding: 2px 7px; font: 11px "Segoe UI", sans-serif; letter-spacing: .5px; }
+[data-testid="stRadio"] label p { font-size: 12px; }
+[data-testid="stRadio"] > label { color: #9bb0c5; }
+.hero { position: relative; padding: 34px 0 26px; margin-bottom: 10px; border-top: 1px solid #253247; margin-top: 20px; }
+.eyebrow { color: #55d8e8; font-size: 11px; letter-spacing: 2px; font-weight: 700; }
+.hero h1 { font-size: clamp(32px, 4vw, 46px); font-weight: 700; letter-spacing: -1.7px; line-height: 1.15; margin: 14px 0; padding: 0; }
+.hero p { max-width: 630px; color: #a8b9ce; font-size: 15px; line-height: 1.7; margin: 0; }
+.status-pill { position: absolute; right: 0; top: 49px; display: flex; align-items: center; gap: 8px; border: 1px solid #275568; border-radius: 24px; padding: 8px 13px; color: #90dce8; font-size: 12px; background: #102c3a; }
+.status-pill span { width: 6px; height: 6px; border-radius: 50%; background: #52dfdc; box-shadow: 0 0 8px #52dfdc55; }
+.st-key-vehicle_card, .st-key-symptoms_card { background: #101c2d; border: 1px solid #28374b !important; border-radius: 18px !important; padding: 24px !important; }
+.section-heading { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 5px; }
+.section-number { color: #55d8e8; background: #153440; border: 1px solid #25515d; border-radius: 10px; padding: 7px 9px; font-size: 12px; font-weight: 600; }
+.section-heading h2 { font-size: 20px; font-weight: 650; margin: 0 0 5px; padding: 0; letter-spacing: -.4px; }
+.section-heading p { margin: 0; color: #a8b8cd; font-size: 12px; line-height: 1.6; }
+[data-testid="stWidgetLabel"] p { font-size: 13px; font-weight: 500; }
+[data-testid="stCaptionContainer"] p { color: #9fb2c9; font-size: 12px; line-height: 1.6; }
+[data-testid="stTextInputRootElement"], [data-baseweb="select"] > div, [data-baseweb="textarea"] { border-radius: 9px !important; background-color: #0b1524 !important; border-color: #304159 !important; }
+input, textarea { color: #edf3fc !important; }
+input::placeholder, textarea::placeholder { color: #7f94ad !important; opacity: 1; }
+[data-testid="stTextInputRootElement"]:focus-within, [data-baseweb="textarea"]:focus-within { border-color: #35d4e8 !important; box-shadow: 0 0 0 2px #35d4e820; }
+.st-key-analyze button { min-height: 49px; background: #35d4e8; border: 1px solid #62e0ef; border-radius: 11px; color: #071725; box-shadow: 0 5px 22px #35d4e81b; transition: background .15s; }
+.st-key-analyze button:hover { background: #6ee5f3; border-color: #6ee5f3; color: #071725; }
+.st-key-analyze button p { font-size: 15px; font-weight: 750; }
+.st-key-analyze button:focus-visible { outline: 3px solid #b6f6ff; outline-offset: 3px; }
+.guide-card { border: 1px solid #2b4356; border-radius: 18px; background: linear-gradient(150deg, #162c3c, #101c2d 70%); padding: 26px; }
+.guide-symbol { color: #69e4ee; font-size: 27px; height: 46px; }
+.guide-card h2 { font-size: 21px; line-height: 1.4; letter-spacing: -.4px; margin: 0 0 24px; padding: 0; }
+.guide-step { display: flex; gap: 13px; padding-bottom: 25px; }
+.guide-step:last-child { padding-bottom: 0; }
+.step-dot { flex: 0 0 27px; height: 27px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #3c586b; color: #8bdce6; font-size: 10px; }
+.guide-step h3, .scope-card h3, .privacy-card h3 { font-size: 14px; font-weight: 600; padding: 0; margin: 2px 0 7px; }
+.guide-step p, .scope-card p, .privacy-card p { color: #a7bbce; font-size: 13px; line-height: 1.7; margin: 0; }
+.scope-card { border: 1px solid #28374b; background: #101c2d; border-radius: 16px; padding: 23px; margin-top: 18px; }
+.mini-label { display: inline-block; color: #65d6e8; font-size: 10px; letter-spacing: 1px; margin-bottom: 10px; }
+.privacy-card { padding: 24px 6px; }
+.privacy-card h3 { color: #c6d6e5; }
+.privacy-card p { font-size: 12px; color: #93a8bf; }
+.summary-card { border: 1px solid #315468; border-radius: 18px; background: #101e30; padding: 30px; margin-top: 8px; }
+.summary-card h2 { font-size: 26px; margin: 12px 0 8px; padding: 0; }
+.summary-card h3 { font-size: 15px; padding: 0; margin-top: 24px; }
+.summary-card > p { color: #a7bbce; font-size: 14px; }
+.summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 18px 0; margin: 0; }
+.summary-item { border-bottom: 1px solid #2b3c51; padding: 10px 0 16px; }
+.summary-item dt { color: #a5b8cb; font-size: 12px; font-weight: 400; margin-bottom: 6px; }
+.summary-item dd { font-size: 17px; color: #edf3fc; margin: 0; overflow-wrap: anywhere; }
+.symptom-summary { white-space: pre-wrap; overflow-wrap: anywhere; background: #0b1524; border-radius: 10px; padding: 18px; line-height: 1.8; font-size: 14px; }
+.summary-edit { margin: 20px 0 0; font-size: 12px !important; }
+.page-footer { border-top: 1px solid #263348; margin-top: 30px; padding-top: 22px; font-size: 12px; color: #91a8bf; }
+.page-footer span { padding: 0 9px; }
+.st-key-safety_card { background: #242435; border: 1px solid #927144 !important; border-radius: 16px !important; padding: 22px !important; }
+.st-key-limitations_card, [class*="st-key-code_P"] { background: #101c2d; border: 1px solid #2c465c !important; border-radius: 16px !important; padding: 24px !important; }
+[class*="st-key-code_P"] h4 { color: #65deec; }
+@media (max-width: 850px) { .status-pill { position: static; width: fit-content; margin-top: 18px; } }
+@media (max-width: 640px) {
+    .stMainBlockContainer { padding: 1.5rem 1rem 2rem; }
+    .hero { padding-top: 25px; }
+    .hero h1 { letter-spacing: -.8px; }
+    .st-key-vehicle_card, .st-key-symptoms_card { padding: 18px !important; }
+    .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .summary-card { padding: 20px; }
+}
