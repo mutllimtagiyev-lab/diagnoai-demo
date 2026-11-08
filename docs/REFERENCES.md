@@ -1,4 +1,4 @@
-# DiagnoAI v0.3 reference and rule notes
+# DiagnoAI reference and rule notes
 
 Definitions were checked on 2026-11-07 against public manufacturer documents.
 The JSON library stores a source ID and a printed-page location for each code.
@@ -54,7 +54,7 @@ or a validated urgency assessment. The cited pages support code definitions;
 they do not substantiate a particular cause or repair for the user's vehicle.
 Professional testing is required before a part is condemned or replaced.
 
-The rules deliberately do not use free-text symptoms, make, model, year,
+The OBD rules deliberately do not use free-text symptoms, make, model, year,
 displacement, or mileage to infer faults. Those details are preserved for
 review. No probabilities, confidence scores, repair prices, or causal links
 between codes are fabricated.
@@ -70,13 +70,62 @@ between codes are fabricated.
   identifies which codes determined it. Causes remain attached to their codes.
 - Unknown/malformed codes: no definition or causes are generated. Mixed reports
   retain the known-code priority and explicitly leave the rest unassessed.
-- Missing codes: no symptom-only diagnosis; priority remains **not assessed**.
+- Missing codes: the OBD code lookup remains **not assessed**. The separate
+  v0.6 symptom module can provide broad guidance from explicit selections.
 - Electric vehicles: generic definitions only; combustion-system causes,
   checks, and priority are withheld pending vehicle/module verification.
-- Safety warnings are always shown. Red-flag symptoms override the baseline;
-  the app does not automatically recognize them in the symptom text.
+- Safety warnings are always shown. The v0.6 symptom module uses explicit
+  red-flag selections; it does not automatically recognize them in free text.
+
+## v0.6 symptom guidance and safety sources
+
+The local `symptom_data.py` patterns are DiagnoAI editorial prompts. They map
+explicit selections to broad systems for a qualified technician to inspect;
+the cited sources do **not** validate a particular cause, component or repair
+for an individual vehicle. The app does not interpret the user's free text.
+
+- [2021 Chevrolet Malibu Owner's Manual](https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/malibu/2021-chevrolet-malibu-owners-manual.pdf),
+  especially printed pp. 87–88 (flashing check-engine light), brake and
+  steering warnings, and the engine-overheating section. These support the
+  conservative warning to seek service when a safety-relevant indication is
+  present. The owner's manual for the user's own vehicle takes precedence.
+- [NHTSA, Driver Assistance Technologies](https://www.nhtsa.gov/vehicle-safety/driver-assistance-technologies):
+  braking and steering are central to maintaining vehicle control. This is
+  context for treating reported control problems as high priority; it is not
+  a diagnostic procedure or proof of fault.
+- [Chevrolet, Diagnostic Alerts](https://www.chevrolet.com/support/vehicle/maintenance/repair-and-service/diagnostic-alerts):
+  distinguishes monitored engine, transmission, anti-lock braking and battery
+  areas. It supports broad system grouping, not vehicle-specific fitment.
+
+The urgency labels are conservative editorial rules, **not** a validated
+triage scale. Brake/steering concerns, reported unusual exhaust smoke and
+explicit severe overheating, fire/smoke, fuel leakage, severe power loss or a
+flashing engine light trigger the high-priority message. Other matched
+patterns suggest professional inspection soon. Generic warning lights alone
+do not identify a system. No rule suggests driving to reproduce a fault,
+opening fuel or hot cooling systems, high-voltage work or replacing a part.
 
 ## Updating the library
+
+### v0.7 component inspection candidates
+
+Reviewed 2026-11-08. These are unranked editorial inspection candidates, not
+manufacturer diagnostic trees or proof of a failed part. No model-specific
+fitment is inferred. Hybrid fuel type is unspecified, so component guidance
+is withheld pending clarification; electric vehicles receive system guidance.
+
+- [NGK/Niterra ignition coil guidance](https://www.ngkntk.com/nordic/newsroom/blog/nordic/you-asked-google-ngk-spark-plug-answers-part-4-ignition-coils-leads-caps/)
+  supports ignition as one possible contributor to rough idle and reduced power.
+- [DENSO spark plug troubleshooting](https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/basic/diagnosis/)
+  describes ignition-related running and load symptoms.
+- [Delphi diesel injector technical leaflet](https://www.delphiautoparts.com/docs/default-source/products-technologies/d_explore-diesel-reman_flyer_a4_en.pdf?sfvrsn=ce07aa04_1)
+  discusses poor running and power loss associated with injector conditions.
+
+Air/sensor and mechanical checks are broad editorial inspection categories,
+not a claim that any listed component causes the user's complaint. A technician
+must select tests from the actual vehicle's service information. Condition
+answers influence the requested inspection context; a flashing warning-light
+answer independently raises safety priority. Free text remains uninterpreted.
 
 Edit `data/obd_codes.json`, supply both `az` and `en` text for every field,
 verify the source URL and printed-page location, update `reviewed_on`, and run

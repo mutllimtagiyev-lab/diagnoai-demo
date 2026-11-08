@@ -2,11 +2,21 @@
 
 from vehicle import MAX_YEAR, MIN_YEAR
 from report_translations import REPORT_TEXT
+from home_translations import HOME_TEXT
+from symptom_translations import SYMPTOM_TEXT
 
 LANGUAGES = {"az": "Azərbaycan dili", "en": "English"}
 
 TEXT = {
     "az": {
+        "select_manufacturer": "İstehsalçını seçin və ya axtarın",
+        "select_model": "Modeli seçin və ya axtarın",
+        "select_manufacturer_first": "Əvvəlcə istehsalçını seçin",
+        "select_year": "Buraxılış ilini seçin",
+        "not_listed": "Digər / Siyahıda yoxdur",
+        "manual_manufacturer": "İstehsalçının adını daxil edin",
+        "manual_model_label": "Modelin adını daxil edin",
+        "catalog_limit": "Kataloq tam deyil; siyahıda olmayan adları əl ilə daxil edə bilərsiniz. İl seçimi modelin həmin ildə istehsalını, mühərrikini və ya kod uyğunluğunu təsdiqləmir.",
         "language": "İnterfeys dili",
         "eyebrow": "İNTERNETSİZ OBD-II KÖMƏKÇİSİ · V0.3",
         "hero_title": "Hər detal önəmlidir.",
@@ -71,6 +81,14 @@ TEXT = {
         "invalid_obd_code": "OBD-II kodu sahəsinə ən çox 100 simvol daxil edin.",
     },
     "en": {
+        "select_manufacturer": "Select or search manufacturer",
+        "select_model": "Select or search model",
+        "select_manufacturer_first": "Select a manufacturer first",
+        "select_year": "Select model year",
+        "not_listed": "Other / Not listed",
+        "manual_manufacturer": "Enter manufacturer name",
+        "manual_model_label": "Enter model name",
+        "catalog_limit": "This catalog is not exhaustive; enter unlisted names manually. Selecting a year does not verify production years, engine specifications, or code compatibility.",
         "language": "Interface language",
         "eyebrow": "OFFLINE OBD-II ASSISTANT · V0.3",
         "hero_title": "Every detail matters.",
@@ -133,6 +151,44 @@ TEXT = {
 
 for language, report_text in REPORT_TEXT.items():
     TEXT[language].update(report_text)
+
+for language, home_text in HOME_TEXT.items():
+    TEXT[language].update(home_text)
+    for key in ("eyebrow", "scope_body", "footer"):
+        TEXT[language][key] = TEXT[language][key].replace("0.3", "0.7")
+    TEXT[language].update(SYMPTOM_TEXT[language])
+    TEXT[language]["obd_hint"] = (
+        "Kodları vergüllə ayırın. Yalnız yerli bazadakı 10 kod izah olunur."
+        if language == "az" else
+        "Separate codes with commas. Only the 10 local codes are explained."
+    )
+    TEXT[language]["submit_hint"] = (
+        "İlkin bələdçi yerli kod məlumatlarından və seçilmiş əlamətlərə aid sabit qaydalardan hazırlanır."
+        if language == "az" else
+        "Preliminary guidance uses local code references and fixed rules for selected symptoms."
+    )
+    TEXT[language]["scope_body"] = (
+        "V0.7 yerli kod və əlamət qaydalarından istifadə edir. Generativ AI yoxdur; mümkün səbəblər diaqnoz deyil."
+        if language == "az" else
+        "V0.7 uses local code references and symptom rules. No generative AI; possible causes are not a diagnosis."
+    )
+    TEXT[language]["required_symptoms"] = (
+        "Ən azı bir əlamət, təcili müşahidə, əlavə təsvir və ya OBD kodu daxil edin."
+        if language == "az" else
+        "Select a symptom or urgent observation, enter a description, or provide an OBD code."
+    )
+    TEXT[language]["invalid_symptom_selection"] = (
+        "Əlamət seçimlərini yoxlayın."
+        if language == "az" else "Check the symptom selections."
+    )
+    TEXT[language]["step2_body"] = (
+        "Müşahidə etdiyiniz əlamətləri seçin; əlavə qeydlər istəyə bağlıdır."
+        if language == "az" else "Select what you noticed; extra notes are optional."
+    )
+    TEXT[language]["footer"] = (
+        "İnternetsiz avtomobil bələdçisi · Versiya 0.7"
+        if language == "az" else "Offline vehicle guidance · Version 0.7"
+    )
 
 
 def translate(language: str, key: str) -> str:

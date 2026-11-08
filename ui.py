@@ -6,6 +6,7 @@ import streamlit as st
 
 from translations import translate
 from vehicle import ENGINE_TYPES, VehicleIntake
+from vehicle_selection import render_identity, year_options
 
 
 def clear_submission():
@@ -22,7 +23,7 @@ def update_engine(widget_key):
 
 def render_header():
     st.markdown('''<div class="brand"><span class="brand-icon" aria-hidden="true">D</span>
-        <span>Diagno<span class="brand-accent">AI</span></span><span class="version">0.3</span></div>''', unsafe_allow_html=True)
+        <span>Diagno<span class="brand-accent">AI</span></span><span class="version">0.7</span></div>''', unsafe_allow_html=True)
 
 
 def render_intro(language):
@@ -52,14 +53,11 @@ def render_vehicle_form(language):
     with st.container(border=True, key="vehicle_card"):
         section_heading("01", t("vehicle_title"), t("vehicle_subtitle"))
         st.caption(t("required_note"))
+        identity, select_identity = render_identity(language, clear_submission)
+        values.update(identity)
         left, right = st.columns(2, gap="medium")
         with left:
-            text_field("manufacturer", t("manufacturer") + " *", "manufacturer_placeholder", 80)
-        with right:
-            text_field("model", t("model") + " *", "model_placeholder", 80)
-        left, right = st.columns(2, gap="medium")
-        with left:
-            text_field("year", t("year") + " *", "year_placeholder", 10)
+            values["year"] = select_identity("vehicle_year", "year", year_options(), "select_year")
         with right:
             # Rebuild the display when language changes: Streamlit can retain the
             # previous formatted label for a selected option with a constant key.
@@ -70,6 +68,7 @@ def render_vehicle_form(language):
                 t("engine_type") + " *", options=("", *ENGINE_TYPES),
                 format_func=lambda value: t(value) if value else t("engine_placeholder"),
                 key=engine_key, filter_mode=None, on_change=update_engine, args=(engine_key,))
+        st.caption(t("catalog_limit"))
         left, right = st.columns(2, gap="medium")
         with left:
             text_field("displacement", t("displacement_label"), "displacement_placeholder", 20)
@@ -77,12 +76,17 @@ def render_vehicle_form(language):
             text_field("mileage", t("mileage_label"), "mileage_placeholder", 15)
     with st.container(border=True, key="symptoms_card"):
         section_heading("02", t("symptoms_title"), t("symptoms_subtitle"))
+        from symptom_ui import render_symptom_inputs
+        values.update(render_symptom_inputs(language))
         values["symptoms"] = st.text_area(
-            t("symptoms") + " *", placeholder=t("symptoms_placeholder"),
-            height=150, max_chars=5000, key="symptoms", on_change=clear_submission)
+            t("observations_label"), placeholder=t("symptoms_placeholder"),
+            height=110, max_chars=5000, key="symptoms", on_change=clear_submission)
         st.caption(t("symptoms_hint"))
-        text_field("obd_code", t("obd_label"), "obd_placeholder", 100)
-        st.caption(t("obd_hint"))
+        if values["diagnostic_mode"] == "have_code_mode":
+            text_field("obd_code", t("obd_label"), "obd_placeholder", 100)
+            st.caption(t("obd_hint"))
+        else:
+            values["obd_code"] = ""
     submitted = st.button(t("analyze"), type="primary", width="stretch", key="analyze")
     st.caption(t("submit_hint"))
     return values, submitted
@@ -96,7 +100,7 @@ def render_guide(language):
         for i in range(1, 4))
     st.markdown(f'''<aside class="guide-card"><div class="guide-symbol" aria-hidden="true">↗</div>
         <h2>{t("guide_title")}</h2>{steps}</aside>
-        <aside class="scope-card"><span class="mini-label">V0.3</span>
+        <aside class="scope-card"><span class="mini-label">V0.7</span>
         <h3>{t("scope_title")}</h3><p>{t("scope_body")}</p></aside>
         <aside class="privacy-card"><h3>{t("privacy_title")}</h3><p>{t("privacy_body")}</p></aside>''', unsafe_allow_html=True)
 
@@ -121,5 +125,5 @@ def render_summary(vehicle: VehicleIntake, language: str):
     st.markdown(f'''<section class="summary-card"><div class="eyebrow">03</div>
         <h2>{t("summary_title")}</h2><p>{t("summary_subtitle")}</p>
         <dl class="summary-grid">{tiles}</dl><h3>{t("symptoms")}</h3>
-        <div class="symptom-summary">{escape(vehicle.symptoms)}</div>
+        <div class="symptom-summary">{escape(', '.join(t(item) for item in vehicle.symptom_ids) or t('not_selected'))}<br>{escape(vehicle.symptoms or t('not_provided_symptoms'))}</div>
         <p class="summary-edit">{t("summary_edit")}</p></section>''', unsafe_allow_html=True)

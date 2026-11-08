@@ -1,14 +1,17 @@
-"""DiagnoAI v0.3: bilingual, offline OBD-II reference assistant."""
+"""DiagnoAI v0.7: bilingual, offline preliminary vehicle guidance."""
 
 from pathlib import Path
 
 import streamlit as st
 
 from translations import LANGUAGES, translate
-from ui import render_header, render_intro, render_vehicle_form, render_guide, render_summary
+from ui import render_header, render_vehicle_form, render_guide, render_summary
+from homepage import render_homepage, render_footer
 from vehicle import validate_vehicle
 from diagnostics import build_report
 from report_ui import render_report
+from symptom_ui import render_symptom_report
+from symptom_analysis import assess_symptoms
 
 
 st.set_page_config(page_title="DiagnoAI", page_icon="🚘", layout="wide")
@@ -27,7 +30,7 @@ with language_control:
     )
 
 language = st.session_state.language
-render_intro(language)
+render_homepage(language)
 form_column, guide_column = st.columns([2.1, 1], gap="large")
 with form_column:
     values, submitted = render_vehicle_form(language)
@@ -43,10 +46,12 @@ with guide_column:
     render_guide(language)
 if st.session_state.get("submitted_vehicle") is not None:
     render_summary(st.session_state.submitted_vehicle, language)
-    try:
-        report = build_report(st.session_state.submitted_vehicle)
-    except (OSError, ValueError):
-        st.error(translate(language, "library_error"))
-    else:
-        render_report(report, language)
-st.markdown(f'<div class="page-footer">DiagnoAI <span>·</span> {translate(language, "footer")}</div>', unsafe_allow_html=True)
+    render_symptom_report(st.session_state.submitted_vehicle, language)
+    if st.session_state.submitted_vehicle.obd_code:
+        try:
+            report = build_report(st.session_state.submitted_vehicle)
+        except (OSError, ValueError):
+            st.error(translate(language, "library_error"))
+        else:
+            render_report(report, language, urgent_safety=assess_symptoms(st.session_state.submitted_vehicle).urgency == "high")
+render_footer(language)

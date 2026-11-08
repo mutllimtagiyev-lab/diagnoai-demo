@@ -6,6 +6,8 @@ header[data-testid="stHeader"] { background: transparent; }
 [data-testid="stToolbar"], [data-testid="stDecoration"], #MainMenu, footer { display: none; }
 /* Replace Streamlit's English edit hints with our translated labels/captions. */
 [data-testid="InputInstructions"] { display: none; }
+/* Streamlit's built-in bulk actions are English-only; individual chips remain removable. */
+[id$="option-__select_all__"], button[aria-label="Clear all"] { display: none !important; }
 h1, h2, h3, p, label { font-family: "Segoe UI", Arial, sans-serif; }
 .brand { display: flex; align-items: center; gap: 10px; font: 700 25px "Segoe UI", sans-serif; letter-spacing: -.8px; }
 .brand-icon { display: grid; place-items: center; width: 39px; height: 39px; border: 1px solid #397384; border-radius: 12px; color: #5be3f1; background: #153342; font-size: 23px; }
@@ -71,3 +73,76 @@ input::placeholder, textarea::placeholder { color: #7f94ad !important; opacity: 
     .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .summary-card { padding: 20px; }
 }
+
+/* v0.4 presentation layer. No external fonts, scripts, or image requests. */
+.stApp { background: radial-gradient(ellipse at 90% 8%, #10253d 0, #070e1b 48%); }
+.stMainBlockContainer { max-width: 1280px; }
+.brand-icon { border-color: #9b8354; background: linear-gradient(140deg, #21364a, #091626); }
+.version { border-color: #786642; color: #d2bb87; }
+.home-hero { display: grid; grid-template-columns: 1fr 1.12fr; align-items: center; gap: 16px; padding: 44px 0 38px; margin-top: 20px; border-top: 1px solid #70604466; }
+.hero-copy { position: relative; z-index: 1; }
+.home-hero h1 { font-size: clamp(36px, 4.1vw, 58px); line-height: 1.12; letter-spacing: -2px; font-weight: 700; padding: 0; margin: 22px 0; color: #f1f5fc; }
+.hero-copy > p { color: #b0c0d4; font-size: 16px; line-height: 1.8; max-width: 470px; }
+.start-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 50px; padding: 13px 23px; margin: 15px 0 18px; border-radius: 10px; border: 1px solid #8fe6f5; background: linear-gradient(110deg, #53d8ec, #78c7ff); color: #061524 !important; font-size: 15px; font-weight: 750; text-decoration: none !important; box-shadow: 0 8px 35px #1585bd25; transition: box-shadow .2s, background .2s; }
+.start-link:hover { background: #a7eaff; box-shadow: 0 8px 38px #31b2d744; }
+.start-link:focus-visible { outline: 3px solid #ebcd8e; outline-offset: 5px; }
+.hero-copy small { display: block; color: #a2b5ca; font-size: 11px; line-height: 1.6; }
+.vehicle-visual { position: relative; min-width: 0; margin: 0; padding: 18px 0; border: 1px solid #89744755; border-radius: 24px; background: radial-gradient(ellipse at center, #14314899, #0a152355 72%); overflow: hidden; }
+.vehicle-visual img { display: block; width: 100%; height: auto; }
+.visual-label { padding: 5px 24px; font-size: 10px; color: #b4c8da; letter-spacing: 1.7px; }
+.visual-label span { color: #d0b47b; margin-right: 8px; }
+.vehicle-visual figcaption { display: flex; align-items: center; gap: 10px; padding: 8px 24px; color: #9fb6cd; font-size: 10px; line-height: 1.6; }
+.visual-line { display: inline-block; width: 24px; height: 1px; background: #bfa36e; }
+.home-services { padding: 30px 0 10px; }
+.home-services h2, .how-section h2, .diagnosis-heading h2 { font-size: clamp(23px, 2.5vw, 30px); line-height: 1.3; letter-spacing: -.6px; padding: 0; margin: 12px 0 25px; }
+.service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.service-card { padding: 24px; border: 1px solid #8b75484d; border-radius: 16px; background: linear-gradient(135deg, #142438, #0d1828); }
+.service-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #396177; border-radius: 11px; color: #83dfee; font-size: 23px; background: #102a3c; margin-bottom: 18px; }
+.service-card h3, .oil-card h3 { font-size: 17px; line-height: 1.4; padding: 0; margin: 0 0 10px; font-weight: 650; }
+.service-card p, .oil-card p { font-size: 13px; color: #aebed1; line-height: 1.75; margin: 0; }
+.oil-card { display: flex; align-items: center; gap: 22px; padding: 26px; margin: 20px 0; border: 1px solid #a88b52; border-radius: 16px; background: linear-gradient(110deg, #272a2e, #132134 60%, #102236); }
+.oil-copy { flex: 1; }
+.oil-copy p { max-width: 760px; }
+.oil-symbol { display: grid; place-items: center; width: 52px; height: 60px; flex-shrink: 0; font-size: 36px; color: #dfc48e; }
+.coming-soon { padding: 7px 12px; border: 1px solid #aa8f58; border-radius: 20px; color: #edd39e; font-size: 11px; white-space: nowrap; background: #b5975020; }
+.how-section { padding: 35px 0 40px; margin-top: 12px; border-bottom: 1px solid #806b434d; }
+.home-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; margin-top: 30px; }
+.home-step { display: flex; gap: 14px; }
+.home-step > span { font-size: 12px; font-weight: 600; color: #d5b87d; padding-top: 3px; }
+.home-step h3 { font-size: 14px; padding: 0; margin: 0 0 8px; }
+.home-step p { font-size: 12px; line-height: 1.7; color: #aebed1; margin: 0; }
+.home-limitation { border-left: 2px solid #a68c58; padding: 12px 18px; margin: 28px 0 0; background: #122034; color: #b5c3d5; border-radius: 0 8px 8px 0; font-size: 12px; line-height: 1.8; }
+.diagnosis-heading { padding: 38px 0 15px; scroll-margin-top: 70px; }
+.diagnosis-heading h2 { margin-bottom: 12px; }
+.diagnosis-heading p { font-size: 14px; line-height: 1.7; color: #aebed1; }
+.diagnosis-heading:focus-visible { outline: 2px solid #e6c98d; outline-offset: 8px; }
+.st-key-vehicle_card, .st-key-symptoms_card { border-color: #8b75485c !important; }
+.home-footer { display: flex; justify-content: space-between; gap: 30px; border-top: 1px solid #806b4366; margin-top: 35px; padding: 28px 0 0; }
+.home-footer strong { font-size: 21px; }
+.home-footer strong span { color: #75dcec; }
+.home-footer h2 { font-size: 13px; padding: 0; margin: 0 0 8px; color: #dfc48e; }
+.home-footer p { font-size: 11px; line-height: 1.8; color: #a6b9cc; margin-top: 8px; }
+@media (max-width: 900px) {
+    .home-hero { grid-template-columns: 1fr 1fr; }
+    .home-hero h1 { font-size: 38px; letter-spacing: -1px; }
+    .service-card { padding: 20px; }
+}
+@media (max-width: 640px) {
+    .home-hero { grid-template-columns: 1fr; padding: 25px 0; gap: 28px; margin-top: 10px; }
+    .home-hero h1 { font-size: 38px; }
+    .hero-copy > p { font-size: 15px; }
+    .start-link { width: 100%; box-sizing: border-box; }
+    .vehicle-visual { padding: 12px 0; border-radius: 18px; }
+    .visual-label { font-size: 9px; letter-spacing: 1px; }
+    .service-grid, .home-steps { grid-template-columns: 1fr; gap: 14px; }
+    .service-card { padding: 22px; }
+    .service-icon { float: left; margin: 0 16px 12px 0; }
+    .service-card p { clear: both; }
+    .oil-card { flex-wrap: wrap; padding: 22px; gap: 14px; }
+    .oil-symbol { display: none; }
+    .oil-copy { flex-basis: 100%; }
+    .home-steps { gap: 22px; }
+    .home-footer { flex-direction: column; gap: 14px; }
+    .eyebrow { font-size: 10px; letter-spacing: 1.4px; }
+}
+@media (prefers-reduced-motion: reduce) { .start-link { transition: none; } }

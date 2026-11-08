@@ -18,8 +18,14 @@ class VehicleIntake(BaseModel):
     engine_type: Literal["gasoline", "diesel", "hybrid", "electric"]
     displacement: float | None = Field(default=None, gt=0, le=100, allow_inf_nan=False)
     mileage: int | None = Field(default=None, ge=0)
-    symptoms: str = Field(min_length=1, max_length=5000)
+    symptoms: str = Field(default="", max_length=5000)
     obd_code: str = Field(default="", max_length=100)
+    diagnostic_mode: Literal["no_code_mode", "have_code_mode"] = "no_code_mode"
+    symptom_ids: tuple[str, ...] = ()
+    issue_condition: str = ""
+    issue_frequency: str = Field(default="", max_length=200)
+    red_flags: tuple[str, ...] = ()
+    warning_light: Literal['unknown', 'off', 'steady', 'flashing'] = 'unknown'
 
     @field_validator("year", "mileage", mode="before")
     @classmethod
@@ -40,11 +46,20 @@ def validate_vehicle(values: dict) -> tuple[VehicleIntake | None, list[str]]:
         cleaned["displacement"] = cleaned["displacement"].replace(",", ".")
     cleaned["obd_code"] = cleaned.get("obd_code", "").upper()
     try:
-        return VehicleIntake(**cleaned), []
+        vehicle = VehicleIntake(**cleaned)
+        from symptom_analysis import valid_symptom_values
+        if not valid_symptom_values(vehicle):
+            return None, ["invalid_symptom_selection"]
+        if not (vehicle.symptom_ids or vehicle.red_flags or vehicle.symptoms or vehicle.obd_code):
+            return None, ["required_symptoms"]
+        return vehicle, []
     except ValidationError as exc:
         errors = []
         for error in exc.errors():
             field = error["loc"][0]
             prefix = "required" if cleaned.get(field) in (None, "") else "invalid"
             errors.append(f"{prefix}_{field}")
+        if not (cleaned.get("symptom_ids") or cleaned.get("red_flags")
+                or cleaned.get("symptoms") or cleaned.get("obd_code")):
+            errors.append("required_symptoms")
         return None, errors

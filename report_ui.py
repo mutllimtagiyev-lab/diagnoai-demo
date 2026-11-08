@@ -8,7 +8,7 @@ from diagnostics import DiagnosticReport
 from translations import translate
 
 
-def render_report(report: DiagnosticReport, language: str):
+def render_report(report: DiagnosticReport, language: str, urgent_safety: bool = False):
     def t(key):
         return translate(language, key)
 
@@ -19,18 +19,22 @@ def render_report(report: DiagnosticReport, language: str):
         st.markdown("\n".join(f"- {localized(item)}" for item in items))
 
     st.markdown(f"## {t('report_title')}")
+    if urgent_safety:
+        st.error(t("priority_high"))
+        st.info(t("urgent_deferred"))
     st.caption(t("report_intro"))
-    st.markdown(f"### {t('urgency_heading')}")
-    st.warning(t(f"urgency_{report.urgency}"))
-    if report.priority_codes:
-        st.write(t("priority_codes") + ": " + ", ".join(report.priority_codes))
-        reasons = dict.fromkeys(localized(f.definition.urgency_reason)
-                                for f in report.findings if f.code in report.priority_codes)
-        for reason in reasons:
-            st.write(reason)
-    else:
-        st.write(t("no_urgency"))
-    st.caption(t("urgency_rule"))
+    if not urgent_safety:
+        st.markdown(f"### {t('urgency_heading')}")
+        st.warning(t(f"urgency_{report.urgency}"))
+        if report.priority_codes:
+            st.write(t("priority_codes") + ": " + ", ".join(report.priority_codes))
+            reasons = dict.fromkeys(localized(f.definition.urgency_reason)
+                                    for f in report.findings if f.code in report.priority_codes)
+            for reason in reasons:
+                st.write(reason)
+        else:
+            st.write(t("no_urgency"))
+        st.caption(t("urgency_rule"))
     if report.unknown_codes or report.invalid_entries:
         st.warning(t("unknown_urgency"))
 
@@ -61,7 +65,7 @@ def render_report(report: DiagnosticReport, language: str):
             st.markdown(f"#### {finding.code} · {localized(definition.meaning)}")
             st.caption(t("meaning_label"))
             st.write(localized(definition.explanation))
-            if report.applicable:
+            if report.applicable and not urgent_safety:
                 st.markdown(f"**{t('causes_heading')}**")
                 bullet_list(definition.possible_causes)
                 st.markdown(f"**{t('checks_heading')}**")
