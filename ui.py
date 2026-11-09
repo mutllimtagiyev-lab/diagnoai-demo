@@ -23,7 +23,7 @@ def update_engine(widget_key):
 
 def render_header():
     st.markdown('''<div class="brand"><span class="brand-icon" aria-hidden="true">D</span>
-        <span>Diagno<span class="brand-accent">AI</span></span><span class="version">0.7</span></div>''', unsafe_allow_html=True)
+        <span>Diagno<span class="brand-accent">AI</span></span><span class="version">0.8</span></div>''', unsafe_allow_html=True)
 
 
 def render_intro(language):
@@ -100,7 +100,7 @@ def render_guide(language):
         for i in range(1, 4))
     st.markdown(f'''<aside class="guide-card"><div class="guide-symbol" aria-hidden="true">↗</div>
         <h2>{t("guide_title")}</h2>{steps}</aside>
-        <aside class="scope-card"><span class="mini-label">V0.7</span>
+        <aside class="scope-card"><span class="mini-label">V0.8</span>
         <h3>{t("scope_title")}</h3><p>{t("scope_body")}</p></aside>
         <aside class="privacy-card"><h3>{t("privacy_title")}</h3><p>{t("privacy_body")}</p></aside>''', unsafe_allow_html=True)
 

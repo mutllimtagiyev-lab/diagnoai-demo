@@ -193,3 +193,10 @@ for language, home_text in HOME_TEXT.items():
 
 def translate(language: str, key: str) -> str:
     return TEXT[language][key]
+
+
+for _lang in ('en', 'az'):
+    TEXT[_lang]['footer'] = 'DiagnoAI · Version 0.8' if _lang == 'en' else 'DiagnoAI · Versiya 0.8'
+    TEXT[_lang]['scope_body'] = ('V0.8 optionally uses AI to suggest symptom selections for confirmation. Diagnostic guidance remains rule-based.' if _lang == 'en' else 'V0.8 istəyə bağlı AI ilə təsdiq üçün əlamət seçimləri təklif edir. Diaqnostik bələdçi sabit qaydalara əsaslanır.')
+    TEXT[_lang]['privacy_body'] = ('Manual input stays in this session. Only text in the optional AI section is sent to Google Gemini, with consent. Do not include identifying information.' if _lang == 'en' else 'Əl ilə giriş bu sessiyada qalır. Yalnız istəyə bağlı AI bölməsindəki mətn razılıqla Google Gemini xidmətinə göndərilir. Şəxsi məlumat daxil etməyin.')
+    TEXT[_lang]['home_limit'] = TEXT[_lang]['scope_body']

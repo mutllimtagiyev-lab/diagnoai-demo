@@ -1,5 +1,17 @@
 # DiagnoAI
 
+## v0.8 release
+
+An optional Gemini symptom-extraction section now proposes existing symptom and
+urgent-observation categories from Azerbaijani or English text. Users must confirm
+suggestions; existing diagnostic rules remain authoritative. A local conservative
+keyword precheck works even with AI disabled. The manual workflow stays offline.
+AI is disabled by default in deployments without configured credentials. One
+controlled English request succeeded locally; Azerbaijani, urgent and unclear
+model behavior remains covered by mocked tests, not live accuracy measurements.
+See [AI setup, evaluation and limitations](docs/AI-EVALUATION.md) before enabling.
+The v0.7 description below documents the preserved manual workflow.
+
 DiagnoAI v0.7 is a bilingual, offline, rule-based preliminary vehicle guidance
 application built with Streamlit and Pydantic. It does not use generative AI,
 paid APIs, a database server, or a live vehicle scan. Reports are not confirmed

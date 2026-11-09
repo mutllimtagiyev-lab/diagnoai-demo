@@ -33,7 +33,10 @@ language = st.session_state.language
 render_homepage(language)
 form_column, guide_column = st.columns([2.1, 1], gap="large")
 with form_column:
+    from ai_ui import render_ai
+    text_hazards = render_ai(language)
     values, submitted = render_vehicle_form(language)
+    values['red_flags'] = tuple(dict.fromkeys((*values['red_flags'], *text_hazards)))
     if submitted:
         vehicle, errors = validate_vehicle(values)
         st.session_state["validation_errors"] = errors
